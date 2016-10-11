@@ -25,8 +25,8 @@ BurnIn = 1000;
 
 N = [100, 120];%, 130]; % no. of trials
 Y = [sum(rand(N(1,1),1)<theta_true(1,1)),...
-     sum(rand(N(1,2),1)<theta_true(1,2))];%,...
-    sum(rand(N(1,3),1)<theta_true(1,3))]; % no. of successes
+     sum(rand(N(1,2),1)<theta_true(1,2))]; %,...
+     sum(rand(N(1,3),1)<theta_true(1,3))]; % no. of successes
 
 cont = MitISEM_Control;
 cont.mit.dfnc = 5;
