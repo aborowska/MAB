@@ -88,11 +88,11 @@ mit_hl.p = 1;
 % kernel_init = @(xx) - posterior_binomial_hl(N, Y, xx, PVR_prelim);
 kernel = @(xx) posterior_binomial_hl(N, Y, xx, PVR_prelim);
 cont2.mit.Hmax = 2;
+% construct the mixture of t's for the high loss regions
 % [mit2, summary2] = MitISEM_new(kernel_init, kernel, mu_init_hl, cont2, GamMat);
 [mit2, summary2] = MitISEM_new(mit_hl, kernel, mu_hl, cont2, GamMat);
 
 Mit2 = MitISEM_plot(mit2, 3, xx, xx, GamMat);
-
 
 
 % IS
@@ -114,7 +114,6 @@ w_opt = fn_ISwgts(lnk, lnd, false);
 
 regret_opt = regret_binomial(draw_opt);
 regret_opt_sort = sort(regret_opt);
-
 
 dens = struct('y',y_opt,'w',w_opt,'p_bar',p_bar);
     IS_estim = fn_PL(dens, 1);
